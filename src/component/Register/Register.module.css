@@ -1,146 +1,116 @@
-.container {
-    display: flex;
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+
+.box {
+	display: grid;
+	grid-template-columns: 1.5fr 2fr;
+	height: 100vh;
 }
 
-img {
-    width: 50vw;
-    display: block;
-    height: 110vh;
+/* LEFT BOX */
+
+.boxLeft {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url(./../../assets/images/cover.png);
+	background-size: cover;
+	background-position: center;
 }
 
-.top {
-    position: absolute;
-    display: flex;
-    top: 4vh;
-    left: 2vw;
-    gap: 40px;
-    color: white;
-    align-items: center;
+.headingBox {
+	width: 60%;
 }
 
-.top p {
-    font-size: larger;
-    font-weight: 600;
+.primaryHeading {
+	font-size: 5.2rem;
+	color: #fff;
+	font-weight: 700;
+	letter-spacing: 0.75px;
+	line-height: 1.2;
 }
 
-.top button {
-    padding: 12px 32px;
-    background: #72DB73;
-    border-radius: 33px;
-    color: white;
-    box-shadow: none;
-    border: none;
+/* RIGHT BOX */
+
+.boxRight {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #000;
+	/* Temporary Style */
+	color: #fff;
 }
 
-.bottom {
-    position: absolute;
-    bottom: 3vh;
-    left: 2vw;
-    color: white;
-    font-size: 55px;
-    font-weight: 900;
-    max-width: 50vw;
+.secondaryHeading {
+	font-family: 'Single Day';
+	font-weight: 400;
+	font-size: 6.3rem;
+	color: #72db73;
+	margin-bottom: 1.6rem;
 }
 
-.body {
-    background: #1e1e1e;
-    color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.accountAction {
+	font-size: 2.4rem;
+	color: #cfcdcd;
+	margin-bottom: 4.8rem;
 }
 
-.body .super {
-    color: #72db73;
-    font-size: 3rem;
-    margin-bottom: 15px;
+.registerBox{
+	display: flex;
+	flex-direction: column;
+	max-width: 36%;
+	justify-content: center;
 }
 
-.super {
-    font-family: "Single Day", cursive;
-}
-
-form input {
-    margin: 12px auto;
-    padding: 10px;
-    width: 90%;
-    max-width: 400px;
-    background-color: #292929;
-    border-radius: 6px;
-    color: white;
-    outline: none;
-    transition: border 0.3s;
-    outline: none;
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
 
 }
 
-form input:focus {
-    border-color: #72db73;
+.inputBox .input{
+	border: none;
+	border-radius:0.4rem;
 }
 
-form .error {
-    color: red;
-    font-size: 14px;
-    width: 90%;
-    max-width: 400px;
-    margin: -10px auto 8px;
-    text-align: left;
-    margin-top: 2px;
+.input {
+	color: #fff;
+	padding: 1.4rem 1.2rem;
+	width: 100%;
+	background-color: #292929;
 }
 
-form label {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    gap: 10px;
-    width: 90%;
-    max-width: 400px;
-    margin: 12px auto;
-    text-align: left;
+.input::placeholder{
+	color: #7C7C7C;
+	letter-spacing: 0.4px;
 }
 
-form label input[type="checkbox"] {
-    margin: 0;
-    width: 24px;
-    height: 24px;
+.checkBox {
+	margin-top: 2rem;
+	margin-bottom: 2.4rem;
+
 }
 
-form button {
-    width: 90%;
-    max-width: 400px;
-    margin: 24px auto;
-    border-radius: 24px;
-    padding: 10px 12px;
-    color: white;
-    background-color: #72db73;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.checkBox label{
+	font-size: 1.4rem;
+	color: #7C7C7C;
+	margin-left: 1.2rem;
+	line-height: 1.6;
 }
 
-form button:hover {
-    background-color: #5cb85c;
+.registerBox p{
+	font-size: 1.2rem;
+	line-height: 1.6;
+	letter-spacing: 0.7px;
+	color: #7C7C7C;
 }
 
-.footer p {
-    font-size: 14px;
-    color: #7c7c7c;
-    width: 90%;
-    max-width: 400px;
-    margin: 8px auto;
-    text-align: left;
-    line-height: 1.2rem;
+.registerBox strong{
+	color: #5baf5c;
 }
 
-.footer span {
-    color: #72db73;
-    cursor: pointer;
+.appTerms{
+	margin-bottom: 1.2rem;
 }
 
-@media (max-width: 768px) {
-    .body {
-        padding: 2vw;
-    }
-}

@@ -1,180 +1,113 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import styles from "./Register.module.css";
-import coverImage from "../../assets/images/cover.png";
-import Button from "../Button/Button";
+import styles from './Register.module.css';
+
+import Button from '../Button/Button';
 
 export default function Register() {
-    const navigate = useNavigate();
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        mobile: "",
-        userName: "",
-        isAgreed: false,
-    });
+	// const [name , setName]=useState('');
+	// const [username , setUsername]=useState('');
+	// const [email , setEmail]=useState('');
+	// const [phone , setPhone]=useState('');
+	// const [isAgreed , setIsAgreed]=useState('');
 
-    const [errors, setErrors] = useState({
-        name: "",
-        email: "",
-        mobile: "",
-        userName: "",
-        isAgreed: "",
-    });
+	function handleSubmit(e) {
+		e.preventDefault();
+		const formData = new FormData(e.target);
+		console.log(Object.fromEntries(formData));
+	}
+	return (
+		<div className={styles.box}>
+			<div className={styles.boxLeft}>
+				<div className={styles.headingBox}>
+					<p className={styles.primaryHeading}>
+						Discover new things on SuperApp
+					</p>
+				</div>
+			</div>
 
-    const handleChange = (event) => {
-        setFormData({
-            ...formData,
-            [event.target.name]: event.target.value,
-        });
-    };
-
-    const handleSubmit = (event) => {
-        let isValid = true;
-        event.preventDefault();
-
-        if (!formData.name.trim().length) {
-            isValid = false;
-            setErrors({ ...errors, name: "Name field required" });
-        }
-
-        if (!formData.email.trim().length) {
-            isValid = false;
-            setErrors({ ...errors, email: "Email field required" });
-        }
-
-        if (!formData.password.trim().length) {
-            isValid = false;
-            setErrors({ ...errors, password: "Password field required" });
-        }
-
-        if (!formData.userName.trim().length) {
-            isValid = false;
-            setErrors({ ...errors, userName: "Username field required" });
-        }
-
-        if (!formData.isAgreed) {
-            isValid = false;
-            setErrors({ ...errors, isAgreed: "Agreement field is required" });
-        }
-
-        // you can always change the error message for each field based on additional checks
-
-        if (isValid) {
-            localStorage.setItem("userData", formData);
-            navigate("/genre");
-        }
-    };
-
-    return (
-        <div className={styles.container}>
-            <div>
-                <div className={styles.bottom}>
-                    <p>Discover new things on SuperApp</p>
-                </div>
-                <img src={coverImage} alt="cover image of music" />
-            </div>
-            <div className={styles.body}>
-                <p className={styles.super}>Super App</p>
-                <p>Create a new Account</p>
-                <p>
-                    Email <span style={{ color: "green" }}>|</span> Google
-                </p>
-                <form>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Enter your name"
-                        onChange={(event) => handleChange(event)}
-                    ></input>
-
-                    {errors.name ? (
-                        <p className={styles.error}>{errors.name}</p>
-                    ) : (
-                        <></>
-                    )}
-
-                    <input
-                        type="text"
-                        name="username"
-                        placeholder="Enter your username"
-                        onChange={(event) => handleChange(event)}
-                    ></input>
-
-                    {errors.userName ? (
-                        <p className={styles.error}>{errors.userName}</p>
-                    ) : (
-                        <></>
-                    )}
-
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        onChange={(event) => handleChange(event)}
-                    ></input>
-
-                    {errors.email ? (
-                        <p className={styles.error}>{errors.email} </p>
-                    ) : (
-                        <></>
-                    )}
-
-                    <input
-                        type="tel"
-                        name="mobile"
-                        placeholder="Mobile"
-                        onChange={(event) => handleChange(event)}
-                    ></input>
-
-                    {errors.mobile ? (
-                        <p className={styles.error}>{errors.mobile}</p>
-                    ) : (
-                        <></>
-                    )}
-
-                    <label>
-                        <input
-                            onChange={(e) =>
-                                setFormData({
-                                    ...formData,
-                                    [e.target.name]: e.target.checked,
-                                })
-                            }
-                            type="checkbox"
-                            name="check"
-                        />
-                        Share my registration data with Superapp
-                    </label>
-
-                    {errors.isAgreed ? (
-                        <p className={styles.error}>{errors.isAgreed}</p>
-                    ) : (
-                        <></>
-                    )}
-
-                    <Button onClick={handleSubmit} />
-                    <footer className={styles.footer}>
-                        <p>
-                            By clicking on Sign up. you agree to Superapp
-                            <span style={{ color: "green" }}>
-                                {" "}
-                                Terms and Conditions of Use
-                            </span>
-                        </p>
-                        <p>
-                            To learn more about how Superapp collects, uses,
-                            shares and protects your personal data please head
-                            Superapp
-                            <span style={{ color: "green" }}>
-                                {" "}
-                                Privacy Policy
-                            </span>
-                        </p>
-                    </footer>
-                </form>
-            </div>
-        </div>
-    );
+			<div className={styles.boxRight}>
+				<p className={styles.secondaryHeading}>SuperApp</p>
+				<p className={styles.accountAction}>Create your new account</p>
+				<div className={styles.registerBox}>
+					<form
+						className={styles.form}
+						onSubmit={(e) => handleSubmit(e)}
+					>
+						<div className={styles.inputBox}>
+							<input
+								type='text'
+								name='name'
+								required
+								id='name'
+								className={styles.input}
+								placeholder='Name'
+								// value={name}
+								// onChange={(e)=>setName(e.target.value)}
+							/>
+						</div>
+						<div className={styles.inputBox}>
+							<input
+								type='text'
+								name='username'
+								required
+								id='username'
+								className={styles.input}
+								placeholder='UserName'
+								// value={username}
+								// onChange={(e)=>setUsername(e.target.value)}
+							/>
+						</div>
+						<div className={styles.inputBox}>
+							<input
+								type='email'
+								name='email'
+								required
+								id='email'
+								className={styles.input}
+								placeholder='Email'
+								// value={email}
+								// onChange={(e)=>setEmail(e.target.value)}
+							/>
+						</div>
+						<div className={styles.inputBox}>
+							<input
+								type='tel'
+								name='phone'
+								required
+								id='phone'
+								className={styles.input}
+								placeholder='Mobile'
+								// value={phone}
+								// onChange={(e)=>setPhone(e.target.value)}
+							/>
+						</div>
+						<div className={styles.checkBox}>
+							<input
+								type='checkbox'
+								name='isAgreed'
+								id='checkbox'
+								className='inputCheckbox'
+								// onChange={(e)=>setIsAgreed(e.target.checked)}
+							/>
+							<label htmlFor='checkbox'>
+								Share my registration data with SuperApp
+							</label>
+						</div>
+						<Button />
+					</form>
+					<p className={`${styles.appTerms}`}>
+						By clicking on Sign up. you agree to Superapp
+						<strong> Terms and Conditions of Use</strong>
+					</p>
+					<p>
+						To learn more about how Superapp collects, uses, shares
+						and protects your personal data please head Superapp
+						<strong> Privacy Policy</strong>
+					</p>
+				</div>
+			</div>
+		</div>
+	);
 }
