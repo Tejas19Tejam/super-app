@@ -1,8 +1,8 @@
 import styles from './Button.module.css';
-export default function Button({ handleSubmit }) {
+export default function Button({ handleSubmit, children }) {
 	return (
 		<button type='submit' className={styles.button}>
-			SIGN UP
+			{children}
 		</button>
 	);
 }

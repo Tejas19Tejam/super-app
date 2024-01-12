@@ -1,7 +1,14 @@
-import Button from '../ui/Button';
+import { Form, redirect, useActionData, useNavigation } from 'react-router-dom';
+import Button from '../component/Button/Button';
 import styles from './Register.module.css';
+import { validateFormData } from '../utils/helper';
 
 function Register() {
+	const navigation = useNavigation();
+	const isSubmitting = navigation.state === 'submitting';
+
+	const error = useActionData();
+
 	return (
 		<div className={styles.box}>
 			<div className={styles.boxLeft}>
@@ -16,7 +23,7 @@ function Register() {
 				<p className={styles.secondaryHeading}>SuperApp</p>
 				<p className={styles.accountAction}>Create your new account</p>
 				<div className={styles.registerBox}>
-					<form className={styles.form}>
+					<Form className={styles.form} method='POST'>
 						<div className={styles.inputBox}>
 							<input
 								type='text'
@@ -52,6 +59,9 @@ function Register() {
 								// value={email}
 								// onChange={(e)=>setEmail(e.target.value)}
 							/>
+							<p className={styles.errorMessage}>
+								{error?.email}
+							</p>
 						</div>
 						<div className={styles.inputBox}>
 							<input
@@ -64,6 +74,9 @@ function Register() {
 								// value={phone}
 								// onChange={(e)=>setPhone(e.target.value)}
 							/>
+							<p className={styles.errorMessage}>
+								{error?.phone}
+							</p>
 						</div>
 						<div className={styles.checkBox}>
 							<input
@@ -76,9 +89,14 @@ function Register() {
 							<label htmlFor='checkbox'>
 								Share my registration data with SuperApp
 							</label>
+							<p className={styles.errorMessage}>
+								{error?.isAgreed}
+							</p>
 						</div>
-						<Button />
-					</form>
+						<Button>
+							{isSubmitting ? 'Submitting...' : 'Sign Up'}
+						</Button>
+					</Form>
 					<p className={`${styles.appTerms}`}>
 						By clicking on Sign up. you agree to Superapp
 						<strong> Terms and Conditions of Use</strong>
@@ -92,6 +110,19 @@ function Register() {
 			</div>
 		</div>
 	);
+}
+
+export async function action({ request }) {
+	const rowFormData = await request.formData();
+	const formData = Object.fromEntries(rowFormData);
+
+	// Filter form data before submitting - Remove whitespace , check mobile number , check all required fields are filed
+	const { status, data } = validateFormData(formData);
+
+	if (status === 'error') return data;
+
+	localStorage.setItem('formData', JSON.stringify(data));
+	return redirect('/profile');
 }
 
 export default Register;
