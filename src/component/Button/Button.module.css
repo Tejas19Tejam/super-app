@@ -1,16 +1,16 @@
 .button {
 	margin-bottom: 2.4rem;
 	border-radius: 2.4rem;
-	padding: 1rem 1.2rem;
-	color: #fff;
-	background-color: #448345;
+	padding: 1rem 3.2rem;
+	color: var(--color-light--2);
+	background-color: var(--color-brand--0);
 	border: none;
-	font-size: 1.5rem;
+	font-size: 1.8rem;
 	letter-spacing: 0.75px;
 	cursor: pointer;
 	transition: background-color 0.3s;
 }
 
 button:hover {
-	background-color: #5baf5c;
+	background-color: var(--color-brand--1);
 }

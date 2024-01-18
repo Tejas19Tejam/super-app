@@ -1,0 +1,63 @@
+.leftBox {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-left: 12.8rem;
+}
+
+.headingPrimary {
+	font-size: 5.2rem;
+	max-width: 51%;
+	font-weight: 700;
+	letter-spacing: -0.5px;
+	line-height: 1.2;
+	color: var(--color-light--3);
+	margin: 3.2rem 0;
+}
+
+.selectedCategoriesBox {
+	display: flex;
+	gap: 2.4rem;
+	max-width: 81%;
+	flex-wrap: wrap;
+}
+
+.selectedCategory {
+	display: flex;
+	gap: 0.8rem;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	list-style: none;
+	padding: 0.6rem 2rem;
+	border-radius: 15px;
+	background-color: var(--color-brand--0);
+}
+
+.icon {
+	width: 2.4rem;
+	height: 2.4rem;
+	opacity: 0.4;
+	visibility: visible;
+	cursor: pointer;
+}
+
+.categoryName {
+	font-size: 2rem;
+	color: var(--color-light--2);
+	text-transform: capitalize;
+}
+
+.limitWarning {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: var(--color-red--1);
+	font-size: 1.8rem;
+	margin-top: 2.4rem;
+}
+
+.warningIcon {
+	opacity: 1;
+	cursor: auto;
+}

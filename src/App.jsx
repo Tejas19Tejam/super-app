@@ -1,12 +1,12 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import Homepage from './pages/Homepage';
-import Register from './pages/Register';
-import Category from './pages/Category';
+import RegisterPage from './pages/RegisterPage/';
+import CategoryPage from './pages/CategoryPage';
 import PageNotFound from './pages/PageNotFound';
 
 // Action function
-import { action as formDataAction } from './pages/Register';
+import { action as formDataAction } from './component/Register/Register';
 
 const router = createBrowserRouter([
 	{
@@ -15,12 +15,12 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/register',
-		element: <Register />,
+		element: <RegisterPage />,
 		action: formDataAction,
 	},
 	{
 		path: '/category',
-		element: <Category />,
+		element: <CategoryPage />,
 	},
 	{
 		path: '*',

@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+.logo {
+	font-family: 'Single Day';
+	font-weight: 400;
+	font-size: 6.3rem;
+	color: var(--color-brand--1);
+	margin-bottom: 1.6rem;
+}
