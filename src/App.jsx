@@ -11,16 +11,16 @@ import { action as formDataAction } from './component/Register/Register';
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Homepage />,
-	},
-	{
-		path: '/register',
 		element: <RegisterPage />,
 		action: formDataAction,
 	},
 	{
 		path: '/category',
 		element: <CategoryPage />,
+	},
+	{
+		path: '/homepage',
+		element: <Homepage />,
 	},
 	{
 		path: '*',

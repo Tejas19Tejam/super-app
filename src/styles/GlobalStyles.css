@@ -50,8 +50,10 @@ Bold - 700
 
 *********************** 06 : BORDER RADIUS  ********************
 Default:0.4rem;
-Medium : 15px
 Semi-medium : 11px
+Medium : 15px
+Large : 17px;
+Extra-large : 80px 
 
 
 
@@ -96,6 +98,8 @@ Semi-medium : 11px
 	--color-indigo--1: #4f46e5;
 	--color-indigo--2: #6366f1;
 	--color-indigo--3: #818cf8;
+
+	--color-purple--0: #9f94ff;
 }
 
 * {
@@ -113,5 +117,6 @@ body {
 	font-family: 'Roboto', Rubik sans-serif;
 	line-height: 1;
 	font-weight: 400;
-	background-color: var(--color-dark--0);
+	overflow: hidden;
+	/* background-color: var(--color-dark--0); */
 }
