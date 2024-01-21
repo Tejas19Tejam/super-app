@@ -40,4 +40,3 @@ export function validateFormData(rowFormData) {
     return { status: 'error', data: errorObject };
 }
 
-console.log("Chages")

@@ -4,7 +4,27 @@ import { WiHumidity } from 'react-icons/wi';
 import { FaThermometerThreeQuarters } from 'react-icons/fa';
 import { RiThunderstormsLine } from 'react-icons/ri';
 
+
+import { getWeather } from '../../api/weather';
+import { useEffect, useState } from 'react';
+
 function TodayInfo() {
+
+	const [text , setText ] = useState('');
+	const [dateTime , setDateTime] = useState('');
+	
+
+	useEffect(()=>{
+		return async ()=>{
+			const {current:weather} =  await getWeather();
+			const dateTime = weather.last_updated;
+			console.log(dateTime)
+			setText(weather.condition);
+			setDateTime(dateTime)
+			
+		}
+	},[])
+
 	return (
 		<section className={`${styles.todayInfo} border-radius--17`}>
 			<div className={styles.timeDateContainer}>
