@@ -13,7 +13,7 @@ function ProfileCard() {
 	}, []);
 
 	return (
-		<div className={styles.profile}>
+		<section className={`${styles.profile} border-radius--17`}>
 			<ProfilePhoto />
 			<div className={styles.profileInfo}>
 				<p className={styles.name}>{formData.name}</p>
@@ -22,7 +22,7 @@ function ProfileCard() {
 
 				<Categories />
 			</div>
-		</div>
+		</section>
 	);
 }
 

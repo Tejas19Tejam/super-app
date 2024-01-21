@@ -25,7 +25,7 @@ function SelectedCategories({ selectedCategories, setCategories }) {
 					<>
 						<ion-icon
 							name='warning-outline'
-							class={`${styles.icon} ${styles.warningIcon}`}
+							class='icon'
 						></ion-icon>
 						<p>Minimum 3 category required</p>
 					</>

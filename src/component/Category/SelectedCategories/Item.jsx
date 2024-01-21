@@ -6,7 +6,7 @@ function Item({ name, onRemoveCategory }) {
 			<p className={styles.categoryName}>{name}</p>
 			<ion-icon
 				name='close-outline'
-				class={styles.icon}
+				class={`${styles.crossIcon} icon`}
 				role='button'
 				onClick={() => onRemoveCategory(name)}
 			></ion-icon>

@@ -106,7 +106,6 @@ Extra-large : 80px
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	overflow: visible;
 }
 
 html {
@@ -117,6 +116,18 @@ body {
 	font-family: 'Roboto', Rubik sans-serif;
 	line-height: 1;
 	font-weight: 400;
-	overflow: hidden;
-	/* background-color: var(--color-dark--0); */
+	overflow: auto;
+	background-color: var(--color-dark--0);
+}
+
+/* HELPER CLASS  */
+
+.border-radius--17 {
+	border-radius: 1.7rem;
+}
+
+.icon {
+	width: 2.4rem;
+	height: 2.4rem;
+	visibility: visible;
 }

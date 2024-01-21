@@ -1,6 +1,7 @@
 import Button from '../../Button/Button';
 import styles from './CategoryList.module.css';
 import CategoryItem from './CategoryItem';
+import { useNavigate } from 'react-router-dom';
 
 const categoriesArray = [
 	'action',
@@ -15,9 +16,11 @@ const categoriesArray = [
 ];
 
 function CategoryList({ selectedCategories, setCategories }) {
+	const navigate = useNavigate();
 	// Store selected categories in local storage
 	function handleStoreCategories() {
 		localStorage.setItem('categories', JSON.stringify(selectedCategories));
+		navigate('/homepage');
 	}
 
 	return (

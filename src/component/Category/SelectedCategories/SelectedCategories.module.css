@@ -34,11 +34,8 @@
 	background-color: var(--color-brand--0);
 }
 
-.icon {
-	width: 2.4rem;
-	height: 2.4rem;
+.crossIcon {
 	opacity: 0.4;
-	visibility: visible;
 	cursor: pointer;
 }
 
