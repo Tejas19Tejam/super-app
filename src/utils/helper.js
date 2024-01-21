@@ -39,3 +39,5 @@ export function validateFormData(rowFormData) {
 	// If some error then send the errorObject
 	return { status: 'error', data: errorObject };
 }
+
+console.log("M");
